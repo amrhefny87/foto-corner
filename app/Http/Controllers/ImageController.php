@@ -23,8 +23,8 @@ class ImageController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'name' => '',
-            'url' => '',
+            'name' => 'required|min:5|max:255',
+            'url' => 'required|min:5|max:255',
         ]);
 
         $image = Image::create($data);
@@ -35,8 +35,8 @@ class ImageController extends Controller
     public function update(Image $image)
     {
         $data = request()->validate([
-            'name' => '',
-            'url' => '',
+            'name' => 'required|min:5|max:255',
+            'url' => 'required|min:5|max:255',
         ]);
 
         $image->update($data);

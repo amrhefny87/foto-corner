@@ -67,6 +67,30 @@ class ImageManagementTest extends TestCase
         $response->assertRedirect('/images/'.$image->id);
     }
 
+    /** @test */
+    public function image_name_is_required()
+    {
+        $response = $this->post('/images', [
+            'name' => '',
+            'url'=> 'Test url',
+        ]); 
+
+        $response->assertSessionHasErrors(['name']);
+    
+    }
+
+    /** @test */
+    public function image_url_is_required()
+    {
+        $response = $this->post('/images', [
+            'name' => 'Test name',
+            'url'=> '',
+        ]); 
+
+        $response->assertSessionHasErrors(['url']);
+    
+    }
+
      /** @test */
      public function an_image_can_be_updated()
      {
@@ -108,4 +132,6 @@ class ImageManagementTest extends TestCase
  
          $response->assertRedirect('/images');
      }
+
+     
 }
