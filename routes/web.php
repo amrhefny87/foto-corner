@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/images', [ImageController::class, 'store'])->name('imageAdd');
+Route::get('/images',[ImageController::class, 'index'])->name('images.index');
+Route::get('/images/{image}',[ImageController::class, 'show'])->name('images.index');
+Route::put('/images/{image}',[ImageController::class, 'update'])->name('images.update');
+Route::delete('/images/{image}',[ImageController::class, 'destroy'])->name('images.destroy');
