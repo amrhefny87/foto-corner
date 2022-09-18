@@ -9,8 +9,15 @@ class ImageController extends Controller
 {
     public function index()
     {
+        $user = auth()->user();
+
         $images = Image::all();
 
+        // dd($images.type);
+
+        $images = $images->where('user_id', $user->id);
+
+    
         return view ('images.index')->with('images',$images);
 
     }
@@ -20,14 +27,20 @@ class ImageController extends Controller
         return view ('images.show')->with('image',$image);
     }
     
-    public function store()
+    public function store(request $request)
     {
-        $data = request()->validate([
-            'name' => 'required|min:5|max:255',
-            'url' => 'required|min:5|max:255',
+        $user = auth()->user();
+        
+        request()->validate([
+            'name'  => 'required|min:5|max:255',
+            'url'   => 'required|min:5|max:255',
         ]);
 
-        $image = Image::create($data);
+        $image = Image::create([
+            'name'    => request()->name,
+            'url'     => request()->url,
+            'user_id' => $user->id
+        ]);
 
         return redirect('/images/'.$image->id);
     }
