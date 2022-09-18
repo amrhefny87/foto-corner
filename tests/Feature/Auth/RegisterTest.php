@@ -9,23 +9,23 @@ use Tests\TestCase;
 
 class RegisterTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    use RefreshDatabase;
+
+    /** @test */
+    public function a_new_user_can_be_registered()
     {
         $response = $this->post('/register', [
-            'name' => 'Andrea',
-            'email' => 'andrea@example.com',
+            'name' => 'Test',
+            'email' => 'Test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
         ]);
 
+        $this->assertCount(1, User::all());
+
         $user = User::first();
-        dd($user);
-        // $this->assertAuthenticated();
-        // $response->assertRedirect('/home');
+
+        $this->assertAuthenticated();
+        $response->assertRedirect('/home');
     }
 }
