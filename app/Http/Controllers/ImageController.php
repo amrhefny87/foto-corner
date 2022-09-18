@@ -47,20 +47,33 @@ class ImageController extends Controller
 
     public function update(Image $image)
     {
-        $data = request()->validate([
-            'name' => 'required|min:5|max:255',
-            'url' => 'required|min:5|max:255',
-        ]);
+        $user = auth()->user();
 
-        $image->update($data);
-
-        return redirect('/images/'.$image->id);
+        if ($image->user_id == $user->id) {
+            $data = request()->validate([
+                'name' => 'required|min:5|max:255',
+                'url' => 'required|min:5|max:255',
+            ]);
+    
+            $image->update($data);
+    
+            return redirect('/images/'.$image->id);
+        } else {
+            return redirect('/images');
+        }
+        
     }
 
     public function destroy(Image $image)
     {
-        $image->delete();
+        $user = auth()->user();
 
-        return redirect('/images');
+        if ($image->user_id == $user->id) {
+            $image->delete();
+
+            return redirect('/images');
+        } else {
+            return redirect('/images');
+        }
     }
 }

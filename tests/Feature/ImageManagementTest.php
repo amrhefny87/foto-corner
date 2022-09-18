@@ -112,46 +112,62 @@ class ImageManagementTest extends TestCase
     }
 
      /** @test */
-    //  public function an_image_can_be_updated()
-    //  {
+     public function an_image_can_be_updated_by_its_uploader()
+     {
          
-    //      $this->withoutExceptionHandling();
+        $this->withoutExceptionHandling();
 
-    //      Image::factory(1)->create();
+        $user = User::factory()->create([
+            'id'=>1
+        ]);
 
-    //      $this->assertCount(1, Image::all());
+        $this->actingAs($user);
 
-    //      $image = Image::first();
+        Image::factory()->create([
+            'user_id' => 1
+        ]);
 
-    //      $response = $this->put('/images/'.$image->id, [
-    //          'name' => 'Test name',
-    //          'url'=> 'Test url',
-    //      ]);
+        $this->assertCount(1, Image::all());
+
+        $image = Image::first();
+
+        $response = $this->put('/images/'.$image->id, [
+             'name' => 'Test name',
+             'url'=> 'Test url',
+        ]);
  
-    //      $image = $image->fresh();
+         $image = $image->fresh();
  
-    //      $this->assertEquals($image->name, 'Test name');
-    //      $this->assertEquals($image->url, 'Test url');
+         $this->assertEquals($image->name, 'Test name');
+         $this->assertEquals($image->url, 'Test url');
  
-    //      $response->assertRedirect('/images/'.$image->id);
-    //  }
+         $response->assertRedirect('/images/'.$image->id);
+     }
 
     //  /** @test */
-    //  public function an_image_can_be_eliminated()
-    //  {
+     public function an_image_can_be_eliminated_by_its_uploader()
+     {
          
-    //      $this->withoutExceptionHandling();
+        $this->withoutExceptionHandling();
 
-    //      Image::factory(1)->create();
+        $user = User::factory()->create([
+            'id'=>1
+        ]);
 
-    //      $image = Image::first();
+        $this->actingAs($user);
 
-    //      $response = $this->delete('/images/'.$image->id);
+         Image::factory()->create([
+            'user_id' => 1
+         ]);
 
-    //      $this->assertCount(0, Image::all());
+         $image = Image::first();
+
+         $response = $this->delete('/images/'.$image->id);
+
+         $this->assertCount(0, Image::all());
  
-    //      $response->assertRedirect('/images');
-    //  }
+         $response->assertRedirect('/images');
+     }
 
      
 }
