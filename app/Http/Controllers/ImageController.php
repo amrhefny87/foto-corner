@@ -13,10 +13,7 @@ class ImageController extends Controller
 
         $images = Image::all();
 
-        // dd($images.type);
-
         $images = $images->where('user_id', $user->id);
-
     
         return view ('images.index')->with('images',$images);
 
@@ -25,6 +22,11 @@ class ImageController extends Controller
     public function show(Image $image)
     {   
         return view ('images.show')->with('image',$image);
+    }
+
+    public function create()
+    {
+        return view ('images.create');
     }
     
     public function store(request $request)
@@ -43,6 +45,13 @@ class ImageController extends Controller
         ]);
 
         return redirect('/images/'.$image->id);
+    }
+
+    public function edit($id)
+    {
+        $image = Image::findOrfail($id);
+
+        return view ('images.edit')->with('image', $image);
     }
 
     public function update(Image $image)

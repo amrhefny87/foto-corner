@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ImageController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController\RegisterController::class, 'create']);
 
-Route::resource('/images', ImageController::class);
+
+Route::resource('/images', ImageController::class, [
+    'names' => [
+        'index'  => 'imageIndex',
+        'show'   => 'imageShow',
+        'create' => 'imageCreate',
+        'store'  => 'imageStore',
+        'edit'   => 'imageEdit',
+        'update' => 'imageUpdate',
+        'destory'=> 'imageDelete'
+
+    ]])->middleware('auth');
+    
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
