@@ -18,7 +18,7 @@ class ImageFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'url' => $this->faker->sentence()
+            'url' => $this->faker->sentence(),
         ];
     }
 }
