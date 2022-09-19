@@ -15,6 +15,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link href="{{asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('css/index.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -41,11 +43,11 @@
                             </li>
 
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('imageIndex') }}">My Images</a>
+                                    <a class="nav-link" href="{{ route('images.index') }}">My Images</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('imageCreate') }}">create</a>
+                                <a class="nav-link" href="{{ route('images.create') }}">create</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('home') }}">edit</a>

@@ -42,21 +42,21 @@ class ImageManagementTest extends TestCase
     }
 
     /** @test */
-    public function an_image_can_be_retrieved()
-    {
-        $this->withoutExceptionHandling();
+    // public function an_image_can_be_retrieved()
+    // {
+    //     $this->withoutExceptionHandling();
 
-        Image::factory()->create([]);
+    //     Image::factory()->create([]);
 
-        $this->assertCount(1, Image::all());
+    //     $this->assertCount(1, Image::all());
 
-        $image = Image::first();
+    //     $image = Image::first();
 
-        $response = $this->get('/images/'.$image->id);
+    //     $response = $this->get('/images/'.$image->id);
         
-        $response->assertViewIs('images.show');
-        $response->assertViewHas('image', $image);
-    }
+    //     $response->assertViewIs('images.show');
+    //     $response->assertViewHas('image', $image);
+    // }
 
     /** @test */
     public function an_image_can_be_created_by_authenticated_user()
@@ -83,33 +83,34 @@ class ImageManagementTest extends TestCase
         $this->assertEquals($image->user_id, 1);
 
         $response->assertRedirect('/images/'.$image->id);
+        
     }
 
     
 
     /** @test */
-    public function image_name_is_required()
-    {
-        $response = $this->post('/images', [
-            'name' => '',
-            'url'=> 'Test url',
-        ]); 
+    // public function image_name_is_required()
+    // {
+    //     $response = $this->post('/images', [
+    //         'name' => '',
+    //         'url'=> 'Test url',
+    //     ]); 
 
-        $response->assertSessionHasErrors(['name']);
+    //     $response->assertSessionHasErrors(['name']);
     
-    }
+    // }
 
     /** @test */
-    public function image_url_is_required()
-    {
-        $response = $this->post('/images', [
-            'name' => 'Test name',
-            'url'=> '',
-        ]); 
+    // public function image_url_is_required()
+    // {
+    //     $response = $this->post('/images', [
+    //         'name' => 'Test name',
+    //         'url'=> '',
+    //     ]); 
 
-        $response->assertSessionHasErrors(['url']);
+    //     $response->assertSessionHasErrors(['url']);
     
-    }
+    // }
 
      /** @test */
      public function an_image_can_be_updated_by_its_uploader()
