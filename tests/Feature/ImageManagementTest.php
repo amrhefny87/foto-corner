@@ -42,21 +42,27 @@ class ImageManagementTest extends TestCase
     }
 
     /** @test */
-    // public function an_image_can_be_retrieved()
-    // {
-    //     $this->withoutExceptionHandling();
+    public function an_image_can_be_retrieved()
+    {
+        $this->withoutExceptionHandling();
 
-    //     Image::factory()->create([]);
+        $user = User::factory()->create([
+            'id'=>1
+        ]);
 
-    //     $this->assertCount(1, Image::all());
+        $this->actingAs($user);
 
-    //     $image = Image::first();
+        Image::factory()->create([]);
 
-    //     $response = $this->get('/images/'.$image->id);
+        $this->assertCount(1, Image::all());
+
+        $image = Image::first();
+
+        $response = $this->get('/images/'.$image->id);
         
-    //     $response->assertViewIs('images.show');
-    //     $response->assertViewHas('image', $image);
-    // }
+        $response->assertViewIs('images.show');
+        $response->assertViewHas('image', $image);
+    }
 
     /** @test */
     public function an_image_can_be_created_by_authenticated_user()
@@ -82,7 +88,7 @@ class ImageManagementTest extends TestCase
         $this->assertEquals($image->url, 'Test url');
         $this->assertEquals($image->user_id, 1);
 
-        $response->assertRedirect('/images/'.$image->id);
+        $response->assertRedirect('/images');
         
     }
 
@@ -142,7 +148,7 @@ class ImageManagementTest extends TestCase
          $this->assertEquals($image->name, 'Test name');
          $this->assertEquals($image->url, 'Test url');
  
-         $response->assertRedirect('/images/'.$image->id);
+         $response->assertRedirect('/images');
      }
 
     //  /** @test */
