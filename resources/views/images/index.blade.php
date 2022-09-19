@@ -4,26 +4,28 @@
 
     <div class="container-md p-5" >
         <div class="pool">
-            <div class="div d-flex flex-wrap justify-content-around">
+            <div class="div d-flex flex-wrap justify-content-around p-2">
             
                 @foreach ($images as $image)
-                <div class="div-photo">
-                    <img src="{{$image->url}}" class="photo">
+                <div class="image mt-2">
+                    <img src="{{$image->url}}" class="image-body" alt="{{$image->url}}">
+                    <div class="image-overlay d-flex flex-column align-items-center justify-content-center">
+                        <div class="image-name">{{$image->name}}</div>
+                        <div class="image-action d-flex flex-row">
+                            <a class="m-1" href="{{route('images.edit',  ["image"=>$image])}}">edit</a>
+                            <a class="m-1" href="{{route('images.destroy',  ["image"=>$image])}}">delete</a>
+                            <form class="image-form" action="{{ route('images.destroy', ["image"=>$image]) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <!-- <button type="submit" class="btn btn-danger"> -->
+                                    <i class="fa fa-trash">Delete</i>
+                                <!-- </button> -->
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="div-info">
-                    <p>{{$image->name}}</p>
-                    <a href="{{route('images.edit',  ["image"=>$image])}}">edit</a>
-                    <a href="{{route('images.destroy',  ["image"=>$image])}}">delete</a>
-                    <form action="{{ route('images.destroy', ["image"=>$image]) }}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                    </form>
-                </div>
-                    
-                    
-
                 @endforeach
+
             </div>
         </div>    
         
