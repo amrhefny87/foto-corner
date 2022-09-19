@@ -12,6 +12,7 @@
 
 .image-intro-overlay {
     position: absolute;
+    display: inline-block;
     top: 50vh;
     left: 0;
     width: 100%;
@@ -22,14 +23,15 @@
 }
 
 .image-intro-name {
-    font-size: 20vh;
+    font-size: 10vw;
     font-family: 'Gwendolyn', cursive;
-    z-index: 2;
-    transform: translateY(-6vh);
+    transform: translateY(-7vh);
     margin-left: 10vw;
+    filter: drop-shadow(20px 0px 8px #5F5959);
 
 }
 
 .image-intro-description{
-
+    font-size: 2vw;
+    font-style: italic;
 }

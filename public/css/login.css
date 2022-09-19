@@ -1,0 +1,21 @@
+.form-card {
+    background-color:rgba(54, 52, 52, 0.6);
+    color: white;
+    max-width: 100%;
+}
+
+.card-info {
+    width: 100%;
+}
+
+.card-photo {
+    width: 60%;
+}
+
+.card-body {
+    width: 40%; 
+}
+
+.form-input {
+    width: 100%; 
+}

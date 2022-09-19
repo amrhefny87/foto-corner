@@ -21,6 +21,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="{{asset('css/app.css') }}" rel="stylesheet">
     <link href="{{asset('css/index.css') }}" rel="stylesheet">
+    <link href="{{asset('css/login.css') }}" rel="stylesheet">
     <link href="{{asset('css/welcome.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -39,7 +40,7 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                             <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('home') }}">Home</a>
+                                    <a class="nav-link text-white" href="{{ route('welcome') }}">Home</a>
                             </li>
 
                             <li class="nav-item">
@@ -52,7 +53,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
@@ -68,7 +69,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="transparent dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item text-white" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

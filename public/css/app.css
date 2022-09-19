@@ -6,3 +6,8 @@
 .logo{
     max-width: 150px;
 }
+
+.transparent{
+    background-color:rgba(0,0,0,0.6);
+}
+
