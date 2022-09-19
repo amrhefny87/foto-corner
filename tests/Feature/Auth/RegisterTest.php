@@ -25,6 +25,9 @@ class RegisterTest extends TestCase
 
         $user = User::first();
 
+        $this->assertEquals($user->name, 'Test');
+        $this->assertEquals($user->email, 'Test@example.com');
+        
         $this->assertAuthenticated();
         $response->assertRedirect('/home');
     }
