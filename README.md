@@ -3,9 +3,9 @@
 
 ## About Foto Corner
 
-Foto Corner is a simple application for Factoria F5 to manage favorite photos using Laravel framework following CRUD functions through MVC structure
+Foto Corner is a simple application for **Factoria F5** to manage favorite photos using Laravel framework following CRUD functions through MVC structure
 
-<br>
+![Welcom]('./public/img/Welcome.jpg')
 
 ## Installation
 
@@ -29,7 +29,7 @@ Foto Corner is a simple application for Factoria F5 to manage favorite photos us
 <br>
 
 ## How to use Foto Corner
-A user will need to register first in order to be able to use the functions of the application, once registed; enter My Images to create and see uploaded photos of this user. To delete or edit a photo just hover over it and the icons of "Edit" or "Delete" will appear.
+A user will need to register first in order to be able to use the functions of the application, once registed; enter My Images to create and see uploaded photos of this user. To delete or edit a photo just hover over it and the icons of **Edit**, **Delete**, or **Open** will appear.
 
 <br>
 
