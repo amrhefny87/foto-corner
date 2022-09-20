@@ -17,9 +17,9 @@
                             <form class="image-form" action="{{ route('images.destroy', ["image"=>$image]) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <!-- <button type="submit" class="btn btn-danger"> -->
-                                    <i class="fa fa-trash">Delete</i>
-                                <!-- </button> -->
+                                <button type="submit" class="btn btn-danger">
+                                    Delete
+                                </button>
                             </form>
                         </div>
                     </div>
