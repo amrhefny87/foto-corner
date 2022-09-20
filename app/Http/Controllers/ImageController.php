@@ -13,7 +13,7 @@ class ImageController extends Controller
 
         $images = Image::all();
 
-        $images = $images->where('user_id', $user->id);
+        $images = $images->where('user_id', $user->id)->sortByDesc('id');
     
         return view ('images.index')->with('images',$images);
 

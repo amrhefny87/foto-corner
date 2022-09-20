@@ -1,4 +1,4 @@
-<div class="container-fluid text-white">
+<div class="container-fluid text-white ml-2">
     <div class="form-group row">
         <label for="name" class="col-md-4 col-form-label text-md-right">Photo Name</label>
         <div class="col-md-6">
@@ -6,7 +6,7 @@
         </div>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group row mt-2">
         <label for="url" class="col-md-4 col-form-label text-md-right">Image url</label>
         <div class="col-md-6">
             <input type="text" class="form-control " name="url"  value="@if(isset($image->url)){{$image->url}} @endif" required>
@@ -14,11 +14,11 @@
     </div>
 
     <div class="form-group row mt-2">
-        <div class="col-md-6 offset-md-4">
+        <div class="col-md-8 offset-md-4">
             <button type="submit" class="btn btn-outline-light">
                 Save
             </button>
-            <button type="submit" class="btn btn-outline-danger">
+            <button type="submit" class="btn btn-outline-light">
                 Cancel
             </button>
         </div>
