@@ -9,12 +9,13 @@
                     <div class="card-photo">
                         <img src="{{ asset('img/lens-photo.jpg') }}" class="image-intro-body" alt="Login Photo">
                     </div>
-                <div class="card-body d-flex align-items-center justify-content-center">
-                    <form class="form-input" method="POST" action="{{ route('images.store') }}">
-                        @csrf
+                    <div class="card-body d-flex align-items-center justify-content-center">
+                        <form class="form-input" method="POST" action="{{ route('images.store') }}">
+                            @csrf
 
-                        @include('images.form')
-                    </form>
+                            @include('images.form')
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
