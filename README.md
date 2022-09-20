@@ -44,6 +44,7 @@ A user will need to register first in order to be able to use the functions of t
 * MAMP
 * MySQL
 * Pixaby.com [a website for free images download]
+* Lightbox js [a Javascript library to open images beautifully]
 
 <br>
 
