@@ -5,13 +5,17 @@ body{
 .navbar-class{
     background: rgb(45,44,47);
     width: 100%;
+    border-bottom: 2px solid #D3CDCD;
+    border-radius: 2px;
 }
 
 .logo{
     max-width: 150px;
 }
 
-.transparent{
-    background-color:rgba(0,0,0,0.6);
+.logout{
+    background: rgb(45,44,47);
+    border: 2px solid #D3CDCD;
+    border-radius: 10px;
 }
 

@@ -10,13 +10,21 @@
                         <img src="{{ $image->url }}" class="image-intro-body" alt="Login Photo">
                     </div>
                     <div class="card-body d-flex align-items-center justify-content-center">
-                        <p>{{$image->name}}</p>
-                        <p>{{$image->created_at}}</p>
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>{{$image->name}}</td>
+                                                   
+                            </tr>
+                            <tr>
+                                <td>Upload date</td> 
+                                <td>{{$image->created_at}}</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>    
 </div>
-
 @endsection

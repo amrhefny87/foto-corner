@@ -25,9 +25,11 @@
     <link href="{{asset('css/index.css') }}" rel="stylesheet">
     <link href="{{asset('css/forms.css') }}" rel="stylesheet">
     <link href="{{asset('css/welcome.css') }}" rel="stylesheet">
+    <link href="{{asset('css/lightbox.css') }}" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
 </head>
 <body>
     <div id="app">
@@ -74,7 +76,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="transparent dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="logout dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item text-white" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -97,5 +99,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{asset('js/lightbox-plus-jquery.min.js') }}"></script>
 </body>
 </html>

@@ -2,6 +2,8 @@
     background-color:rgba(54, 52, 52, 0.6);
     color: white;
     max-width: 100%;
+    border: 2px solid #D3CDCD;
+    border-radius: 2px;
     
 }
 

@@ -24,7 +24,10 @@
             
                 @foreach ($images as $image)
                 <div class="image mt-2">
-                    <img src="{{$image->url}}" class="image-body" alt="{{$image->url}}">
+                    <a href="{{$image->url}}" class="image-body" data-lightbox="{{$image->name}}" data-title="{{$image->name}}">
+                        <img src="{{$image->url}}" class="image-body" alt="{{$image->url}}">
+                    </a>
+                  
                     <div class="image-overlay d-flex flex-column align-items-center justify-content-center">
                         <div class="image-name">{{$image->name}}</div>
                         <div class="image-action d-flex flex-row">
