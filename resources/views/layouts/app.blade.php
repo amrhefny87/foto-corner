@@ -19,10 +19,15 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <!-- Styles -->
     <link href="{{asset('css/app.css') }}" rel="stylesheet">
     <link href="{{asset('css/index.css') }}" rel="stylesheet">
     <link href="{{asset('css/forms.css') }}" rel="stylesheet">
     <link href="{{asset('css/welcome.css') }}" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
     <div id="app">

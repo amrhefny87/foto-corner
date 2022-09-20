@@ -29,16 +29,19 @@
                         <div class="image-name">{{$image->name}}</div>
                         <div class="image-action d-flex flex-row">
                             <a class="m-1" href="{{route('images.edit',  ["image"=>$image])}}">
-                                <i class="bi bi-trash-fill"></i>
-                                edit
+                                <i class="bi bi-pencil-square"></i>
                             </a>
                             <form class="image-form" action="{{ route('images.destroy', ["image"=>$image]) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this photo?')">
-                                    <i class="bi bi-trash-fill"></i>
+                                <button type="submit" class="btn btn-white" onclick="return confirm('Are you sure you want to delete this photo?')">
+                                    <i class="bi bi-trash"></i>
                                 </button>
                             </form>
+                            <a class="m-1" href="{{route('images.show',  ["image"=>$image])}}">
+                                <i class="bi bi-door-open-fill"></i>
+                            </a>
+                            
                         </div>
                     </div>
                 </div>

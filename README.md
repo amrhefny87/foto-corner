@@ -40,7 +40,7 @@ A user will need to register first in order to be able to use the functions of t
 * Php 8.1.10
 * Laravel Framwork 9.30.1
 * Bootstrap 5.2.1
-* Bootstap icons
+* Bootstap Icons
 * MAMP
 * MySQL
 * Pixaby.com [a website for free images download]
