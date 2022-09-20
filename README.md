@@ -51,6 +51,7 @@ A user will need to register first in order to be able to use the functions of t
 * Clean Code
 * TDD
 * MVC
+* Responsive
 
 <br>
 
