@@ -23,7 +23,7 @@
             
                 @foreach ($images as $image)
                 <div class="image mt-2">
-                    <a href="{{$image->url}}" class="image-body" data-lightbox="{{$image->name}}" data-title="{{$image->name}}">
+                    <a href="{{$image->url}}" class="image-body" data-lightbox="gallery" data-title="{{$image->name}}">
                         <img src="{{$image->url}}" class="image-body" alt="{{$image->url}}">
                     </a>
                   
