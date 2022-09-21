@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+}
+
+.navbar-class {
+    width: 100%;
+    border-bottom: 2px solid #D3CDCD;
+    border-radius: 2px;
+}
+
+.logo {
+    max-width: 150px;
+}
+
+.logout {
+    border: 2px solid #D3CDCD;
+    border-radius: 10px;
+}
+
+.navbar-class, .logout {
+    background: rgb(45,44,47);
+}
+
