@@ -23,10 +23,8 @@
 }
 
 .image-intro-name {
-    font-size: 10vw;
-    font-family: 'Gwendolyn', cursive;
-    transform: translateY(-7vh);
-    margin-left: 10vw;
-    filter: drop-shadow(20px 0px 8px #5F5959);
-
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    margin-left: 5vw;
 }
