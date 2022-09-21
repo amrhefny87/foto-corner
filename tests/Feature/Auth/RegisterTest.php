@@ -34,41 +34,17 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
-    public function a_user_can_not_be_register_without_name ()
+    public function a_user_can_not_be_register_without_credentials ()
     {
         $response = $this->post('/register', [
             'name' => '',
-            'email' => 'Test@example.com',
-            'password' => 'password',
+            'email' => '',
+            'password' => '',
             'password_confirmation' => 'password',
         ]);
 
         $response->assertSessionHasErrors(['name']);
-    }
-
-    /** @test */
-    public function a_user_can_not_be_register_without_email ()
-    {
-        $response = $this->post('/register', [
-            'name' => 'Test',
-            'email' => '',
-            'password' => 'password',
-            'password_confirmation' => 'password',
-        ]);
-
         $response->assertSessionHasErrors(['email']);
-    }
-
-    /** @test */
-    public function a_user_can_not_be_register_without_password ()
-    {
-        $response = $this->post('/register', [
-            'name' => 'Test',
-            'email' => 'Test@example.com',
-            'password' => '',
-            'password_confirmation' => '',
-        ]);
-
         $response->assertSessionHasErrors(['password']);
     }
 
