@@ -37,7 +37,7 @@ class ImageManagementTest extends TestCase
     }
 
     /** @test */
-    public function a_list_of_images_can_be_retrieved_by_its_owner ()
+    public function a_list_of_images_can_be_retrieved_by_its_owner_with_a_message ()
     {
         $this->withoutExceptionHandling();
 
@@ -58,9 +58,12 @@ class ImageManagementTest extends TestCase
         $images = Image::all();
         $images = $images->where('user_id', $user->id);
 
+        $message = 'Take a photo, it will last longer';
+
         $this->assertCount(3, $images);
         $response->assertViewIs('images.index');
         $response->assertViewHas('images', $images);
+        $response->assertViewHas('message', $message);
     }
 
     /** @test */
@@ -114,7 +117,7 @@ class ImageManagementTest extends TestCase
     }
 
     /** @test */
-    public function image_name_is_required_to_create_an_image ()
+    public function image_name_and_url_are_required_to_create_an_image ()
     {   
         $user = User::factory()->create([
             'id'=>1
@@ -124,26 +127,10 @@ class ImageManagementTest extends TestCase
         
         $response = $this->post('/images', [
             'name' => '',
-            'url'=> 'Test url',
-        ]); 
-
-        $response->assertSessionHasErrors(['name']);
-    }
-
-    /** @test */
-    public function image_url_is_required_to_create_an_image ()
-    {
-        $user = User::factory()->create([
-            'id'=>1
-        ]);
-
-        $this->actingAs($user);
-
-        $response = $this->post('/images', [
-            'name' => 'Test name',
             'url'=> '',
         ]); 
 
+        $response->assertSessionHasErrors(['name']);
         $response->assertSessionHasErrors(['url']);
     }
 
@@ -180,7 +167,7 @@ class ImageManagementTest extends TestCase
     }
 
     /** @test */
-    public function image_name_is_required_to_update_an_image ()
+    public function image_name_and_url_are_required_to_update_an_image ()
     {   
         $user = User::factory()->create([
             'id'=>1
@@ -198,34 +185,10 @@ class ImageManagementTest extends TestCase
         
         $response = $this->put('/images/'.$image->id, [
             'name' => '',
-            'url'=> 'Test url',
-       ]);
-
-        $response->assertSessionHasErrors(['name']);
-    }
-
-    /** @test */
-    public function image_url_is_required_to_update_an_image ()
-    {   
-        $user = User::factory()->create([
-            'id'=>1
-        ]);
-
-        $this->actingAs($user);
-
-        Image::factory()->create([
-            'user_id' => 1
-        ]);
-
-        $this->assertCount(1, Image::all());
-
-        $image = Image::first();
-        
-        $response = $this->put('/images/'.$image->id, [
-            'name' => 'Test',
             'url'=> '',
        ]);
 
+        $response->assertSessionHasErrors(['name']);
         $response->assertSessionHasErrors(['url']);
     }
 
