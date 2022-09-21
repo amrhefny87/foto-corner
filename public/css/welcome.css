@@ -1,4 +1,4 @@
-.welcome-container{
+.welcome-container {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -29,9 +29,4 @@
     margin-left: 10vw;
     filter: drop-shadow(20px 0px 8px #5F5959);
 
-}
-
-.image-intro-description{
-    font-size: 2vw;
-    font-style: italic;
 }

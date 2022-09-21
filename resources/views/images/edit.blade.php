@@ -10,7 +10,7 @@
                         <img src="{{ asset('img/blonde-photo.jpg') }}" class="image-intro-body" alt="Login Photo">
                     </div>
                     <div class="card-body d-flex align-items-center justify-content-center">
-                        <form class="form-input" method="POST" action="{{route('images.update',  ["image"=>$image])}}">
+                        <form class="form-input" method="POST" action="{{route('images.update', ["image"=>$image])}}">
                             @csrf
                             @method('PUT')
 

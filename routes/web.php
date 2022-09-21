@@ -24,7 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController\RegisterController::class, 'create']);
 
-
 Route::resource('images', ImageController::class)->middleware('auth');
     
 Auth::routes();
