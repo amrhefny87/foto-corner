@@ -13,10 +13,17 @@ class ImageController extends Controller
 
         $images = Image::all();
 
-        $images = $images->where('user_id', $user->id);
-    
-        return view ('images.index')->with('images',$images);
+        $images = $images->where('user_id', $user->id)->sortByDesc('id');
 
+        $message = "";
+
+        if ($images->count() == 0) {
+            $message = 'You do not have any images uploaded';
+            return view ('images.index')->with('images',$images)->with('message',$message);
+        } else {
+            $message = 'Take a photo, it will last longer';
+            return view ('images.index')->with('images',$images)->with('message',$message);
+        }
     }
 
     public function show(Image $image)
@@ -44,7 +51,7 @@ class ImageController extends Controller
             'user_id' => $user->id
         ]);
 
-        return redirect('/images');
+        return redirect('/images')->with('message',$image->name.' photo is added to your gallery');
     }
 
     public function edit($id)
@@ -69,7 +76,7 @@ class ImageController extends Controller
     
             $image->update($data);
     
-            return redirect('/images');
+            return redirect('/images')->with('message',$image->name.' photo has been modified');
         } else {
             return redirect('/images');
         }
@@ -86,7 +93,7 @@ class ImageController extends Controller
 
             $image->delete();
 
-            return redirect('/images');
+            return redirect('/images')->with('message',$image->name.' photo has been deleted');
         } else {
             return redirect('/images');
         }

@@ -1,8 +1,21 @@
+body{
+    background-color: black;
+}
+
 .navbar-class{
     background: rgb(45,44,47);
     width: 100%;
+    border-bottom: 2px solid #D3CDCD;
+    border-radius: 2px;
 }
 
 .logo{
     max-width: 150px;
 }
+
+.logout{
+    background: rgb(45,44,47);
+    border: 2px solid #D3CDCD;
+    border-radius: 10px;
+}
+

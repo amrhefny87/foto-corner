@@ -12,18 +12,31 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&display=swap" rel="stylesheet">
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <!-- Styles -->
     <link href="{{asset('css/app.css') }}" rel="stylesheet">
     <link href="{{asset('css/index.css') }}" rel="stylesheet">
+    <link href="{{asset('css/forms.css') }}" rel="stylesheet">
+    <link href="{{asset('css/welcome.css') }}" rel="stylesheet">
+    <link href="{{asset('css/lightbox.css') }}" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
 </head>
 <body>
     <div id="app">
         <nav class="navbar-class navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
-                    <img class="logo" src="{{ asset('img/Logo.png') }} ">
+                    <img class="logo" src="{{ asset('img/Logo.png') }}">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -34,7 +47,7 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                             <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('home') }}">Home</a>
+                                    <a class="nav-link text-white" href="{{ route('welcome') }}">Home</a>
                             </li>
 
                             <li class="nav-item">
@@ -47,7 +60,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
@@ -63,7 +76,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="logout dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item text-white" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -82,9 +95,10 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>
+    <script src="{{asset('js/lightbox-plus-jquery.min.js') }}"></script>
 </body>
 </html>

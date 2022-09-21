@@ -1,0 +1,37 @@
+.welcome-container{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.image-intro-body {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.image-intro-overlay {
+    position: absolute;
+    display: inline-block;
+    top: 50vh;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background-color:rgba(0,0,0,0.6);
+    color: white;
+    opacity: 1;
+}
+
+.image-intro-name {
+    font-size: 10vw;
+    font-family: 'Gwendolyn', cursive;
+    transform: translateY(-7vh);
+    margin-left: 10vw;
+    filter: drop-shadow(20px 0px 8px #5F5959);
+
+}
+
+.image-intro-description{
+    font-size: 2vw;
+    font-style: italic;
+}
