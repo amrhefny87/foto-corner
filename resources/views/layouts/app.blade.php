@@ -43,34 +43,32 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                            <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('welcome') }}">Home</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('welcome') }}">Home</a>
+                        </li>
 
-                            <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('images.index') }}">My Images</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('images.index') }}">My Images</a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('images.create') }}">Add Images</a>
-                            </li>
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('images.create') }}">Add Images</a>
+                        </li>
+                            @guest
+                                @if (Route::has('login'))
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif
                             
-                        @else
+                            @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -89,13 +87,12 @@
                                 </div>
                             </li>
                         @endguest
-                        
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <main class="">
+        <main>
             @yield('content')
         </main>
     </div>

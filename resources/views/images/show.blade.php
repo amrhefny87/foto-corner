@@ -13,8 +13,7 @@
                         <table>
                             <tr>
                                 <td>Name</td>
-                                <td>{{$image->name}}</td>
-                                                   
+                                <td>{{$image->name}}</td> 
                             </tr>
                             <tr>
                                 <td>Upload date</td> 

@@ -38,11 +38,10 @@ class ImageManagementTest extends TestCase
         $this->assertCount(3, $images);
         $response->assertViewIs('images.index');
         $response->assertViewHas('images', $images);
-    
     }
 
     /** @test */
-    public function an_image_can_be_retrieved()
+    public function an_image_can_be_retrieved ()
     {
         $this->withoutExceptionHandling();
 
@@ -65,7 +64,7 @@ class ImageManagementTest extends TestCase
     }
 
     /** @test */
-    public function an_image_can_be_created_by_authenticated_user()
+    public function an_image_can_be_created_by_authenticated_user ()
     {
         $this->withoutExceptionHandling();
 
@@ -89,39 +88,45 @@ class ImageManagementTest extends TestCase
         $this->assertEquals($image->user_id, 1);
 
         $response->assertRedirect('/images');
-        
     }
 
-    
+    /** @test */
+    public function image_name_is_required_to_create_an_image ()
+    {   
+        $user = User::factory()->create([
+            'id'=>1
+        ]);
+
+        $this->actingAs($user);
+        
+        $response = $this->post('/images', [
+            'name' => '',
+            'url'=> 'Test url',
+        ]); 
+
+        $response->assertSessionHasErrors(['name']);
+    }
 
     /** @test */
-    // public function image_name_is_required()
-    // {
-    //     $response = $this->post('/images', [
-    //         'name' => '',
-    //         'url'=> 'Test url',
-    //     ]); 
+    public function image_url_is_required_to_create_an_image ()
+    {
+        $user = User::factory()->create([
+            'id'=>1
+        ]);
 
-    //     $response->assertSessionHasErrors(['name']);
-    
-    // }
+        $this->actingAs($user);
 
-    /** @test */
-    // public function image_url_is_required()
-    // {
-    //     $response = $this->post('/images', [
-    //         'name' => 'Test name',
-    //         'url'=> '',
-    //     ]); 
+        $response = $this->post('/images', [
+            'name' => 'Test name',
+            'url'=> '',
+        ]); 
 
-    //     $response->assertSessionHasErrors(['url']);
-    
-    // }
+        $response->assertSessionHasErrors(['url']);
+    }
 
      /** @test */
-     public function an_image_can_be_updated_by_its_uploader()
-     {
-         
+    public function an_image_can_be_updated_by_its_uploader()
+    {
         $this->withoutExceptionHandling();
 
         $user = User::factory()->create([
@@ -152,9 +157,8 @@ class ImageManagementTest extends TestCase
      }
 
     //  /** @test */
-     public function an_image_can_be_eliminated_by_its_uploader()
-     {
-         
+    public function an_image_can_be_eliminated_by_its_uploader()
+    {
         $this->withoutExceptionHandling();
 
         $user = User::factory()->create([
@@ -163,18 +167,16 @@ class ImageManagementTest extends TestCase
 
         $this->actingAs($user);
 
-         Image::factory()->create([
+        Image::factory()->create([
             'user_id' => 1
-         ]);
+        ]);
 
-         $image = Image::first();
+        $image = Image::first();
 
-         $response = $this->delete('/images/'.$image->id);
+        $response = $this->delete('/images/'.$image->id);
 
-         $this->assertCount(0, Image::all());
+        $this->assertCount(0, Image::all());
  
-         $response->assertRedirect('/images');
-     }
-
-     
+        $response->assertRedirect('/images');
+    }
 }

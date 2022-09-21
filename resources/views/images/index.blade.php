@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container-md p-5 d-flex flex-column justify-content-center" >
 
         @if(Session::has('message'))
@@ -19,8 +18,8 @@
         </div>
         @endif
 
-        <div class="pool">
-            <div class="div d-flex flex-wrap justify-content-around p-2">
+        <div class="images-container">
+            <div class="images-div d-flex flex-wrap justify-content-around p-2">
             
                 @foreach ($images as $image)
                 <div class="image mt-2">
@@ -30,7 +29,7 @@
                   
                     <div class="image-overlay d-flex flex-column align-items-center justify-content-center">
                         <div class="image-name">{{$image->name}}</div>
-                        <div class="image-action d-flex flex-row">
+                        <div class="d-flex flex-row">
                             <a class="m-1" href="{{route('images.edit',  ["image"=>$image])}}">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
@@ -44,17 +43,11 @@
                             <a class="m-1" href="{{route('images.show',  ["image"=>$image])}}">
                                 <i class="bi bi-door-open-fill"></i>
                             </a>
-                            
                         </div>
                     </div>
                 </div>
                 @endforeach
-
             </div>
         </div>    
-        
     </div>
-
-
-
 @endsection

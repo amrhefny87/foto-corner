@@ -29,6 +29,6 @@ class RegisterTest extends TestCase
         $this->assertEquals($user->email, 'Test@example.com');
         
         $this->assertAuthenticated();
-        $response->assertRedirect('/home');
+        $response->assertRedirect('/');
     }
 }

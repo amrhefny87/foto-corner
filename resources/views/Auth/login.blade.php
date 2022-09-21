@@ -6,15 +6,17 @@
         <div class="col-md-10">
             <div class="form-card mt-3">
                 <div class="card-info d-flex flex-row">
+
                     <div class="card-photo">
                         <img src="{{ asset('img/mobile-photo.jpg') }}" class="image-intro-body" alt="Login Photo">
                     </div>
+
                     <div class="card-body d-flex align-items-center">
                         <form method="POST" action="{{ route('login') }}" class="form-input">
                             @csrf
 
                             <div class="row mb-3">
-                                <label   label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
