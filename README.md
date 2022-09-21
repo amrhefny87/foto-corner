@@ -18,6 +18,7 @@ Foto Corner is a simple application for **Factoria F5** to manage favorite photo
 
 ## 🏃‍♀️ Running the application
 * [php artisan serve]
+* [php artisan key:generate] might be needed
 
 <br>
 
